@@ -177,7 +177,7 @@ if __name__ == "__main__":
     parser.add_argument('--logger', dest='use_logger', type=bool, default=True,
         help='Use logger')
     parser.add_argument('--batch_size', dest='batch_size', type=int, default=100,
-        help='Use logger')
+        help='Batch size')
     parser.add_argument('--outf', dest='outf', type=str, default='output',
         help='Output Folder')
     parser.add_argument('--ocsvm_fname', dest='ocsvm_fname', type=str, default='ocsvm',
