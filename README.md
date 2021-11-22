@@ -38,7 +38,7 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
     - replace the `volatile` flags with `with torch.no_grad()`.
     - replace `async=True` with `non_blocking=True` in `cuda`.
     - use `data` instead of `data[0]` for 0-dim tensors.
-    - adding `.cpu()` before applying `.numpy()` on a tensor.
+    - adding `.cpu()` before applying `.numpy()` to a tensor.
     </details>
 
 4. Create the following folders:
