@@ -108,8 +108,8 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
 
 Apart from the files used above:
 - `maha_extension` contains the code to reproduce the data splitting used in the Mahalanobis detector code (in `data.py`) and to use the pre-trained models (in `model.py`).
-- `net_detector` contains the code to train a generic detector that extract layer-specific scores and aggregates them using a logistic function:
-    - `preprocessing,py` contains the `GroupedScaler` class to center data with the class means.
+- `net_detector` contains the code to train a generic detector that extracts layer-specific scores and aggregates them using a logistic function:
+    - `preprocessing.py` contains the `GroupedScaler` class to center data with the class means.
     - `net_detector.py` contains the class `net_detector`.
     - `base_detector.py` contains the Mahalanobis detector implemented using `GroupedScaler` (NOT USED).
 
