@@ -1,6 +1,6 @@
 # Getting Started
 
-Project of "EAD: an ensemble approach to detect adversarial examples from the hidden features of deep neural networks".
+Project of "Unity is strength: improving the detection of adversarial examples via ensembling".
 
 # Setup
 
@@ -96,10 +96,10 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
 
     By default, it will use the best hyperparameters given in the paper and saved in `pre_computed/OCSVM_best_params.json`. When the `--precomputed` flag is set to `False`, use `--n_points` and `--n_iter` to choose the number of parallel evaluations and maximum number of iterations of the Bayesian hyperparameter optimization.
 
-10. Train the Ensamble Adversarial Detector (EAD):
+10. Train the ENsamble Adversarial Detector (ENAD):
 
     ```
-    python ead.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output
+    python enad.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output
     ```
 
     Outputs the performances on the testset obtained by aggregating the (best) layer-specific scores of the LID, Mahalanobis and OCSVM detectors.
