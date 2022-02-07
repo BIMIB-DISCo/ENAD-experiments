@@ -62,7 +62,7 @@ def run(
     auroc_test = roc_auc_score(dataset.adv_test[dataset.idxs_test], -adv_conf_test)
     aupr_test = aupr(dataset.adv_test[dataset.idxs_test], adv_conf_test, pos_label=-1)
 
-    print(f"EAD test performances are: AUROC = {round(auroc_test*100, 2)} and AUPR = {round(aupr_test*100, 2)}.")
+    print(f"ENAD test performances are: AUROC = {round(auroc_test*100, 2)} and AUPR = {round(aupr_test*100, 2)}.")
 
 
 if __name__ == "__main__":
