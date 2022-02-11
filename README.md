@@ -1,6 +1,6 @@
 # Getting Started
 
-Project of "Unity is strength: improving the detection of adversarial examples via ensembling".
+Project of "Unity is strength: improving the detection of adversarial examples with ensemble approaches".
 
 # Setup
 
