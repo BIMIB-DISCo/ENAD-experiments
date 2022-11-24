@@ -1,9 +1,3 @@
-# Getting Started
-
-Project of "Unity is strength: improving the detection of adversarial examples with ensemble approaches".
-
-![alt text][framework.jpg]
-
 # Setup
 
 The code was tested on `Python 3.7.10` with the packages listed in the `requirements.txt` file.
@@ -12,14 +6,7 @@ The code was tested on `Python 3.7.10` with the packages listed in the `requirem
 
 Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
 
-1. Clone this repository in `path/to/repo`, and change the working directory:
-
-    ```
-    git clone https://github.com/... path/to/repo
-    cd path/to/repo
-    ```
-
-2. Install the requirements (in a virtualenv):
+1. Install the requirements (in a virtualenv):
 
     ```
     pip install -r requirements.txt
@@ -27,7 +14,7 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
 
     Note: `scipy` and `scikit_learn` are not in the last version due to compatibility issues with the version of `scikit_optimize` used in the experiments.
 
-3. Clone the Maha repository in the `mahalanobis` folder:
+2. Clone the Maha repository in the `mahalanobis` folder:
 
     ```
     git clone https://github.com/pokaxpoka/deep_Mahalanobis_detector.git mahalanobis
@@ -43,11 +30,11 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
     - adding `.cpu()` before applying `.numpy()` to a tensor.
     </details>
 
-4. Create the following folders:
+3. Create the following folders:
     - `pre_trained`: it should contain the pre-trained models available [here](https://github.com/pokaxpoka/deep_Mahalanobis_detector.git).
     - `output`: it will contain the output of the experiments.
 
-5. Generate the data for `cifar10`, `resnet` and `FGSM` (look [here](https://github.com/pokaxpoka/deep_Mahalanobis_detector.git) for the full code usage)
+4. Generate the data for `cifar10`, `resnet` and `FGSM` (look [here](https://github.com/pokaxpoka/deep_Mahalanobis_detector.git) for the full code usage)
 
     ```
     python mahalanobis/ADV_Samples.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output/
@@ -68,7 +55,7 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
 
     </details>
 
-6. Generate the layer-specific scores of the Mahalanobis [[1]](#1) and LID [[2]](#2) detectors:
+5. Generate the layer-specific scores of the Mahalanobis [[1]](#1) and LID [[2]](#2) detectors:
 
     ```
     python mahalanobis/ADV_Generate_LID_Mahalanobis.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output/
@@ -77,7 +64,7 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
     The command generates for both the LID and Mahalanobis detector a table with the layer-specific scores in `LID_{parameter}_cifar10_FGSM.npy` and `Mahalanobis_{parameter}_cifar10_FGSM.npy`, where `{parameter}` is the number of neighbors *k* for LID and noise magnitude *lambda* for Mahalanobis. The tables are located in in `output/resnet_cifar10`.
 
 
-7. Find the best hyper-parameters for the Mahalanobis and LID detectors:
+6. Find the best hyper-parameters for the Mahalanobis and LID detectors:
 
     ```
     python maha_model_selection.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output
@@ -86,7 +73,7 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
     The command generates a `LID_best_cifar10_FGSM.npy` and `Mahalanobis_best_cifar10_FGSM.npy` in `output/resnet_cifar10` with the tables of the layer-specific scores corresponding to the best parameters of LID and Mahalanobis.
 
 
-9. Train the OCSVM detector:
+7. Train the OCSVM detector:
 
     ```
     python ocsvm_trainer.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output
@@ -96,9 +83,9 @@ Run comparable experiments with the *Mahalanobis detector* (Maha) [[1]](#1).
     - `OCSVM_net_detector_resnet_cifar10_FGSM.pkl`: `net_detector` class containing the OCSVM detectors of each layer.
     - `OCSVM_resnet_cifar10_FGSM.npy`: OCSVM layer-specific scores on the test set.
 
-    By default, it will use the best hyperparameters given in the paper and saved in `pre_computed/OCSVM_best_params.json`. When the `--precomputed` flag is set to `False`, use `--n_points` and `--n_iter` to choose the number of parallel evaluations and maximum number of iterations of the Bayesian hyperparameter optimization.
+    By default, it will use the best hyperparameters given in the paper and saved in `../pre_computed/OCSVM_best_params.json`. When the `--precomputed` flag is set to `False`, use `--n_points` and `--n_iter` to choose the number of parallel evaluations and maximum number of iterations of the Bayesian hyperparameter optimization.
 
-10. Train the ENsamble Adversarial Detector (ENAD):
+8. Train the ENsamble Adversarial Detector (ENAD):
 
     ```
     python enad.py --dataset cifar10 --net_type resnet --adv_type FGSM --outf output
