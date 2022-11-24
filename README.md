@@ -2,7 +2,7 @@
 
 Project of "Unity is strength: improving the detection of adversarial examples with ensemble approaches".
 
-![alt text][framework.jpg]
+![alt text][https://github.com/BIMIB-DISCo/ENAD-experiments/blob/main/framework.jpg]
 
 # Setup
 
